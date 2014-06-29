@@ -30,7 +30,19 @@ You'll need to include the following single JavaScript file and two CSS files to
 - `release/side-comments.css`
 - `release/themes/default-theme.css`
 
-You can choose **not** to include `default-theme.css`, but you'll need to style SideComments youself if you choose not to include it, as `side-comments.css` handles only the basic layout styling and not making it all pretty and looking like Medium.com.
+You can choose **not** to include `default-theme.css`, but you'll need to style SideComments yourself if you choose not to include it, as `side-comments.css` handles only the basic layout styling and not making it all pretty and looking like Medium.com.
+
+#### 2.1 Include SideComments.js in your Wordpress theme.
+
+You must ensure that jQuery is enqueued by your theme before loading SideComments.js and that the directory paths are set appropriately.
+
+It's currently set to look for the SideComments.js and SideComments.css file in your root theme directory.
+
+Include the PHP functions in wordpress/functions.php to
+- Register and enqueue SideComments.js and SideComments.css
+- Append the commentable-container class to each articles container using the post_class function
+- Create commentable sections from each paragraph in the post appendinng the commentable-section class
+- Append section_id to each paragraph incrementally starting at 1
 
 ### 3. Set up your HTML.
 
